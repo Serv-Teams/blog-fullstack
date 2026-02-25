@@ -3,6 +3,8 @@ import { getPost, getPostsByTopic } from "./_actions/Posts";
 import Blog from "./_components/Blog";
 import Link from "next/link";
 import { Box, Container } from "@mui/material";
+import Latest from "./_components/Latest";
+import { notFound } from "next/navigation";
 
 type Props = {
     params: Promise<{ slug: string[] }>;
@@ -49,49 +51,12 @@ export default async function Page({
         const data = await getPostsByTopic(slug[0]);
 
         return (
-            // <>
-            //     {
-            //         data?.map((d: any) => {
-            //             const fullUrl = `/${d.slugs.join('/')}`;
-            //             return (
-
-            //                 <div key={d._id}>
-            //                     {d.title}
-            //                     <Link href={fullUrl}>
-            //                         Baca Selengkapnya
-            //                     </Link>
-            //                 </div>
-            //             )
-            //         })
-            //     }
-            // </>
-            <Container maxWidth="lg">
-                <Box
-                    sx={{
-                        my: 4,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}
-                >
-                    <div>
-                        {data.map((post: any) => {
-                            // --- INI CARA MENGGABUNGKAN ARRAY SLUG ---
-                            // Mengubah ['blog', '2024', 'nextjs-tutorial'] menjadi "/blog/2024/nextjs-tutorial"
-                            const fullUrl = `/${post.slugs.join('/')}`;
-
-                            return (
-                                <div key={post._id} style={{ marginBottom: '10px' }}>
-                                    <h2>{post.title}</h2>
-                                    <Link href={fullUrl}>
-                                        Baca Selengkapnya
-                                    </Link>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </Box>
+            <Container
+                maxWidth="lg"
+                component="main"
+                sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
+            >
+                <Latest data={data} />
             </Container>
         )
 
@@ -114,5 +79,5 @@ export default async function Page({
         )
 
     } else
-        return <div>My Post: {slug}</div>
+        return notFound();
 }
