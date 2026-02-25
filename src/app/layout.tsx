@@ -17,12 +17,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
             <CssBaseline />
             <ModeSwitch />
             {props.children}
-            <footer className="border-t mt-16 py-6 text-sm text-center">
-              <a href="/about" className="mx-2">Tentang Kami</a>&ensp;
-              <a href="/privacy-policy" className="mx-2">Kebijakan Privasi</a>&ensp;
-              <a href="/contact" className="mx-2">Kontak</a>
-            </footer>
-
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

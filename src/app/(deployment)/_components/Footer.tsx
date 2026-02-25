@@ -170,11 +170,11 @@ export default function Footer() {
                         <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
                             Perusahaan
                         </Typography>
-                        <Link color="text.secondary" variant="body2" href="https://serv-marketplace.vercel.app/tentang-kami">
+                        <Link color="text.secondary" variant="body2" href="/about-us">
                             Tentang Kami
                         </Link>
-                        <Link color="text.secondary" variant="body2" href="https://serv-marketplace.vercel.app/bisnis">
-                            Bisnis
+                        <Link color="text.secondary" variant="body2" href="/contact-us">
+                            Kontak kami
                         </Link>
                     </Box>
                     <Box
@@ -187,11 +187,8 @@ export default function Footer() {
                         <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
                             Legal
                         </Typography>
-                        <Link color="text.secondary" variant="body2" href="/terms">
-                            Terms
-                        </Link>
-                        <Link color="text.secondary" variant="body2" href="/privacy">
-                            Privacy
+                        <Link color="text.secondary" variant="body2" href="/privacy-policy">
+                            Privasi
                         </Link>
                     </Box>
                 </Box>
