@@ -24,20 +24,20 @@ export async function generateMetadata(
         const blog = await getPost(slug[1]);
 
         return {
-            title: blog?.title || "Blog",
+            title: `Serv | ${blog?.title || "Blog"} `,
             description: blog?.content?.slice(0, 150) || "Postingan Blog",
         };
     }
 
     if (slug.length === 1) {
         return {
-            title: `Topik: ${slug[0]}`,
+            title: `Serv | ${slug[0]} `,
             description: `Daftar Postingan dengan Topik ${slug[0]}`,
         };
     }
 
     return {
-        title: "Blog",
+        title: "Serv | Blog",
         description: "Halaman Blog dengan berbagai topik dan postingan menarik.",
     };
 }
