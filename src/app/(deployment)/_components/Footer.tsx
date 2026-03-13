@@ -170,10 +170,10 @@ export default function Footer() {
                         <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
                             Perusahaan
                         </Typography>
-                        <Link color="text.secondary" variant="body2" href="/about-us">
+                        <Link color="text.secondary" variant="body2" href="/tentang-kami">
                             Tentang Kami
                         </Link>
-                        <Link color="text.secondary" variant="body2" href="/contact-us">
+                        <Link color="text.secondary" variant="body2" href="/kontak-kami">
                             Kontak kami
                         </Link>
                     </Box>
@@ -187,8 +187,8 @@ export default function Footer() {
                         <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
                             Legal
                         </Typography>
-                        <Link color="text.secondary" variant="body2" href="/privacy-policy">
-                            Privasi
+                        <Link color="text.secondary" variant="body2" href="/kebijakan-privasi">
+                            Kebijakan Privasi
                         </Link>
                     </Box>
                 </Box>
