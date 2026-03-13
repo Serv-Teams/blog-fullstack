@@ -125,9 +125,9 @@ function ResponsiveAppBar() {
                                     <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                                 </MenuItem>
                             ))} */}
-                            <MenuItem onClick={handleCloseNavMenu} href='/topik'>
+                            {/* <MenuItem onClick={handleCloseNavMenu} href='/topik'>
                                 <Typography sx={{ textAlign: 'center' }}>Topik</Typography>
-                            </MenuItem>
+                            </MenuItem> */}
                             <MenuItem onClick={handleCloseNavMenu} href='/tentang-kami'>
                                 <Typography sx={{ textAlign: 'center' }}>Tentang Kami</Typography>
                             </MenuItem>
@@ -161,13 +161,13 @@ function ResponsiveAppBar() {
                                 {page}
                             </Button>
                         ))} */}
-                        <Button
+                        {/* <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
                             href='/topik'
                         >
                             Topik
-                        </Button>
+                        </Button> */}
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
