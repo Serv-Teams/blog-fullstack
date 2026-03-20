@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import Link from 'next/link';
+import { Pagination } from '@mui/material';
 
 
 const StyledTypography = styled(Typography)({
@@ -56,9 +57,11 @@ const TitleTypography = styled(Typography)(({ theme }) => ({
 
 
 export default function Latest({ data }: { data: any[] }) {
-    const [focusedCardIndex, setFocusedCardIndex] = React.useState<number | null>(
-        null,
-    );
+    const [focusedCardIndex, setFocusedCardIndex] = React.useState<number | null>(null);
+
+    // 👉 Pagination state
+    const [page, setPage] = React.useState(1);
+    const itemsPerPage = 6;
 
     const handleFocus = (index: number) => {
         setFocusedCardIndex(index);
@@ -68,13 +71,23 @@ export default function Latest({ data }: { data: any[] }) {
         setFocusedCardIndex(null);
     };
 
+    // 👉 Slice data based on page
+    const startIndex = (page - 1) * itemsPerPage;
+    const paginatedData = data.slice(startIndex, startIndex + itemsPerPage);
+
+    // 👉 Handle page change
+    const handleChange = (_: React.ChangeEvent<unknown>, value: number) => {
+        setPage(value);
+    };
+
     return (
         <div>
             <Typography variant="h2" gutterBottom>
                 Blog
             </Typography>
+
             <Grid container spacing={8} columns={12} sx={{ my: 4 }}>
-                {data.map((d, index) => (
+                {paginatedData.map((d, index) => (
                     <Grid key={index} size={{ xs: 12, sm: 6 }}>
                         <Box
                             sx={{
@@ -85,9 +98,10 @@ export default function Latest({ data }: { data: any[] }) {
                                 height: '100%',
                             }}
                         >
-                            <Typography gutterBottom variant="caption" component="div">
+                            <Typography gutterBottom variant="caption">
                                 {d.topic}
                             </Typography>
+
                             <Link href={d.slugs.join('/')}>
                                 <TitleTypography
                                     gutterBottom
@@ -96,7 +110,6 @@ export default function Latest({ data }: { data: any[] }) {
                                     onBlur={handleBlur}
                                     tabIndex={0}
                                     className={focusedCardIndex === index ? 'Mui-focused' : ''}
-
                                 >
                                     {d.title}
                                     <NavigateNextRoundedIcon
@@ -105,18 +118,26 @@ export default function Latest({ data }: { data: any[] }) {
                                     />
                                 </TitleTypography>
                             </Link>
-                            <StyledTypography variant="body2" color="text.secondary" gutterBottom>
-                                {d.content.length > 100 ? d.content.substring(0, 100) + '...' : d.content}
-                            </StyledTypography>
 
-                            {/* <Author authors={article.authors} /> */}
+                            <StyledTypography variant="body2" color="text.secondary">
+                                {d.content.length > 100
+                                    ? d.content.substring(0, 100) + '...'
+                                    : d.content}
+                            </StyledTypography>
                         </Box>
                     </Grid>
                 ))}
             </Grid>
-            {/* <Box sx={{ display: 'flex', flexDirection: 'row', pt: 4 }}>
-                <Pagination hidePrevButton hideNextButton count={10} boundaryCount={10} />
-            </Box> */}
+
+            {/* 👉 Pagination UI */}
+            <Box sx={{ display: 'flex', justifyContent: 'center', pt: 4 }}>
+                <Pagination
+                    count={Math.ceil(data.length / itemsPerPage)}
+                    page={page}
+                    onChange={handleChange}
+                    color="primary"
+                />
+            </Box>
         </div>
     );
 }
