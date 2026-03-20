@@ -1,3 +1,4 @@
+import { Container } from "@mui/material";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,7 +8,11 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
     return (
-        <main className="max-w-3xl mx-auto px-6 py-12">
+        <Container
+            maxWidth="lg"
+            component="main"
+        >
+
             <h1 className="text-3xl font-bold mb-6">Kebijakan Privasi</h1>
 
             <p className="mb-4">
@@ -37,6 +42,6 @@ export default function PrivacyPolicyPage() {
             <p className="text-sm text-gray-600 mt-8">
                 Dengan menggunakan situs ini, Anda menyetujui Kebijakan Privasi ini.
             </p>
-        </main>
+        </Container>
     );
 }

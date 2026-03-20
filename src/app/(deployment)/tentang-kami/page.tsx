@@ -1,3 +1,4 @@
+import { Container } from "@mui/material";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,7 +9,10 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
     return (
-        <main className="max-w-3xl mx-auto px-6 py-12">
+        <Container
+            maxWidth="lg"
+            component="main"
+        >
             <h1 className="text-3xl font-bold mb-6">Tentang Kami</h1>
 
             <p className="mb-4">
@@ -38,6 +42,6 @@ export default function AboutPage() {
                 Catatan: Seluruh artikel di situs ini bersifat analisis dan opini
                 editorial, bukan pernyataan resmi lembaga tertentu.
             </p>
-        </main>
+        </Container>
     );
 }

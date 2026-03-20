@@ -1,3 +1,4 @@
+import { Container } from "@mui/material";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,7 +8,10 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
     return (
-        <main className="max-w-3xl mx-auto px-6 py-12">
+        <Container
+            maxWidth="lg"
+            component="main"
+        >
             <h1 className="text-3xl font-bold mb-6">Hubungi Kami</h1>
 
             <p className="mb-4">
@@ -27,6 +31,6 @@ export default function ContactPage() {
                 Catatan: Kami tidak menerima konten promosi tersembunyi atau artikel
                 titipan yang bertentangan dengan prinsip editorial.
             </p>
-        </main>
+        </Container>
     );
 }

@@ -122,6 +122,7 @@ export default function Footer() {
                                     size="small"
                                     href="https://linkedin.com/company/serv-teams/"
                                     aria-label="LinkedIn"
+                                    target="_blank"
                                     sx={{ alignSelf: 'center' }}
                                 >
                                     <LinkedInIcon />
@@ -130,7 +131,8 @@ export default function Footer() {
                                     color="inherit"
                                     size="small"
                                     href="https://instagram.com/serv_agency.id"
-                                    aria-label="LinkedIn"
+                                    aria-label="Instagram"
+                                    target="_blank"
                                     sx={{ alignSelf: 'center' }}
                                 >
                                     <Instagram />
