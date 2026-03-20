@@ -63,18 +63,10 @@ export default async function Page({
     } else if (slug.length === 2) {
         const blog = await getPost(slug[1]);
         return (
-            <Container maxWidth="lg">
-                <Box
-                    sx={{
-                        my: 4,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}
-                >
-                    <Blog content={blog?.content} title={blog?.title} />
-                </Box>
+            <Container maxWidth="lg" component="main">
+
+                <Blog content={blog?.content} title={blog?.title} />
+
             </Container>
         )
 

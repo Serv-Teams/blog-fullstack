@@ -17,7 +17,7 @@ export default async function Blog({
   title: string;
 }) {
   return (
-    <div>
+    <div style={{ padding: "2rem" }}>
       <Typography variant="h4" gutterBottom>
         {title}
       </Typography>
